@@ -13,6 +13,8 @@
 		A6D136311DFA390500E63686 /* Camera_ComicCollector.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A6D1362F1DFA390500E63686 /* Camera_ComicCollector.xcdatamodeld */; };
 		A6D136331DFA390500E63686 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6D136321DFA390500E63686 /* Assets.xcassets */; };
 		A6D136361DFA390500E63686 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6D136341DFA390500E63686 /* LaunchScreen.storyboard */; };
+		A6D1363E1DFA3E7300E63686 /* tumblr_nb1k6n0lDM1qbgo38o1_500.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A6D1363D1DFA3E7300E63686 /* tumblr_nb1k6n0lDM1qbgo38o1_500.jpg */; };
+		A6D136401DFA3FE500E63686 /* ComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D1363F1DFA3FE500E63686 /* ComicViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		A6D136321DFA390500E63686 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6D136351DFA390500E63686 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A6D136371DFA390500E63686 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A6D1363D1DFA3E7300E63686 /* tumblr_nb1k6n0lDM1qbgo38o1_500.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tumblr_nb1k6n0lDM1qbgo38o1_500.jpg; sourceTree = "<group>"; };
+		A6D1363F1DFA3FE500E63686 /* ComicViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComicViewController.swift; path = ../ComicViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +60,10 @@
 		A6D136271DFA390500E63686 /* Camera-ComicCollector */ = {
 			isa = PBXGroup;
 			children = (
+				A6D1363D1DFA3E7300E63686 /* tumblr_nb1k6n0lDM1qbgo38o1_500.jpg */,
 				A6D136281DFA390500E63686 /* AppDelegate.swift */,
 				A6D1362A1DFA390500E63686 /* ViewController.swift */,
+				A6D1363F1DFA3FE500E63686 /* ComicViewController.swift */,
 				A6D1362C1DFA390500E63686 /* Main.storyboard */,
 				A6D136321DFA390500E63686 /* Assets.xcassets */,
 				A6D136341DFA390500E63686 /* LaunchScreen.storyboard */,
@@ -127,6 +133,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6D1363E1DFA3E7300E63686 /* tumblr_nb1k6n0lDM1qbgo38o1_500.jpg in Resources */,
 				A6D136361DFA390500E63686 /* LaunchScreen.storyboard in Resources */,
 				A6D136331DFA390500E63686 /* Assets.xcassets in Resources */,
 				A6D1362E1DFA390500E63686 /* Main.storyboard in Resources */,
@@ -142,6 +149,7 @@
 			files = (
 				A6D1362B1DFA390500E63686 /* ViewController.swift in Sources */,
 				A6D136291DFA390500E63686 /* AppDelegate.swift in Sources */,
+				A6D136401DFA3FE500E63686 /* ComicViewController.swift in Sources */,
 				A6D136311DFA390500E63686 /* Camera_ComicCollector.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
