@@ -39,7 +39,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="UHA-Mi-VmI"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="YHW-n3-x6H">
                             <connections>
-                                <segue destination="wRi-iX-Mie" kind="show" identifier="addComicSegue" id="kDL-aC-6Ei"/>
+                                <segue destination="wRi-iX-Mie" kind="show" identifier="comicSegue" id="kDL-aC-6Ei"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -71,7 +71,7 @@
                                 </constraints>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SVd-VA-TS9">
-                                <rect key="frame" x="102.5" y="313" width="170" height="30"/>
+                                <rect key="frame" x="103" y="313" width="170" height="30"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -83,12 +83,29 @@
                                     <action selector="addTapped:" destination="wRi-iX-Mie" eventType="touchUpInside" id="Asg-4m-zyF"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="UMt-EP-h1f">
+                                <rect key="frame" x="165" y="421" width="45" height="30"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c5E-WD-SpW">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="30"/>
+                                        <state key="normal" title="Delete"/>
+                                        <connections>
+                                            <action selector="deleteTapped:" destination="wRi-iX-Mie" eventType="touchUpInside" id="Zsc-7S-nz3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="c5E-WD-SpW" firstAttribute="centerX" secondItem="UMt-EP-h1f" secondAttribute="centerX" id="6pS-r5-VnO"/>
+                                </constraints>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="UMt-EP-h1f" firstAttribute="centerX" secondItem="N72-P8-ETk" secondAttribute="centerX" id="2DG-OQ-UPQ"/>
                             <constraint firstItem="S4T-iV-Xcf" firstAttribute="top" secondItem="SVd-VA-TS9" secondAttribute="bottom" constant="26" id="4St-CL-JLx"/>
                             <constraint firstItem="aRb-pL-BDs" firstAttribute="top" secondItem="9kp-uV-UU6" secondAttribute="bottom" constant="20" id="5iz-q8-hX1"/>
                             <constraint firstItem="S4T-iV-Xcf" firstAttribute="centerX" secondItem="N72-P8-ETk" secondAttribute="centerX" id="8dL-uj-N0j"/>
+                            <constraint firstItem="c5E-WD-SpW" firstAttribute="top" secondItem="S4T-iV-Xcf" secondAttribute="bottom" constant="22" id="A4L-aa-Gfy"/>
                             <constraint firstItem="SVd-VA-TS9" firstAttribute="centerX" secondItem="N72-P8-ETk" secondAttribute="centerX" id="Bfp-e2-HXn"/>
                             <constraint firstItem="aRb-pL-BDs" firstAttribute="centerX" secondItem="N72-P8-ETk" secondAttribute="centerX" id="VLD-xG-Py3"/>
                             <constraint firstItem="SVd-VA-TS9" firstAttribute="top" secondItem="aRb-pL-BDs" secondAttribute="bottom" constant="29" id="iDp-XG-q2f"/>
@@ -110,13 +127,15 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="addUpdateButton" destination="S4T-iV-Xcf" id="ycB-p9-1LU"/>
                         <outlet property="comicImageView" destination="aRb-pL-BDs" id="cHM-WN-KtS"/>
                         <outlet property="comicTextField" destination="SVd-VA-TS9" id="inu-sk-ZBj"/>
+                        <outlet property="deleteButton" destination="c5E-WD-SpW" id="STH-du-TLz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bfb-xt-o2D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882" y="139"/>
+            <point key="canvasLocation" x="1863" y="139"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="tE1-95-eeh">

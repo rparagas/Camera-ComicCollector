@@ -12,13 +12,24 @@ class ComicViewController: UIViewController, UIImagePickerControllerDelegate, UI
 
     @IBOutlet weak var comicImageView: UIImageView!
     @IBOutlet weak var comicTextField: UITextField!
+    @IBOutlet weak var addUpdateButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
     
     var imagePicker = UIImagePickerController()
+    var comic : Comic? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         imagePicker.delegate = self
+        
+        if comic != nil{
+            comicImageView.image = UIImage(data: comic!.image as! Data)
+            comicTextField.text = comic?.title
+            addUpdateButton.setTitle("Update", for: .normal)
+        } else {
+            deleteButton.isHidden = true
+        }
+        
         // Do any additional setup after loading the view.
     }
 
@@ -27,16 +38,6 @@ class ComicViewController: UIViewController, UIImagePickerControllerDelegate, UI
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
@@ -55,13 +56,28 @@ class ComicViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func addTapped(_ sender: Any) {
-        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        let comic = Comic(context: context)
-        comic.title = comicTextField.text
-        comic.image = UIImagePNGRepresentation(comicImageView.image!) as NSData?
+        
+        if comic != nil {
+            comic!.title = comicTextField.text
+            comic!.image = UIImagePNGRepresentation(comicImageView.image!) as NSData?
+            (UIApplication.shared.delegate as! AppDelegate).saveContext()
+            navigationController!.popViewController(animated: true)
+        } else {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            let comic = Comic(context: context)
+            comic.title = comicTextField.text
+            comic.image = UIImagePNGRepresentation(comicImageView.image!) as NSData?
+        }
         (UIApplication.shared.delegate as! AppDelegate).saveContext()
         navigationController!.popViewController(animated: true)
-        
     }
+    
+    @IBAction func deleteTapped(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        context.delete(comic!)
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController!.popViewController(animated: true)
+    }
+    
 
 }

@@ -43,6 +43,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print("ERROR")
         }
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comic = comics[indexPath.row]
+        performSegue(withIdentifier: "comicSegue", sender: comic)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as! ComicViewController
+        nextVC.comic = sender as? Comic
+    }
 
 }
 
