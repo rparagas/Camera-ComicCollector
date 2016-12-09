@@ -55,6 +55,13 @@ class ComicViewController: UIViewController, UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func addTapped(_ sender: Any) {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let comic = Comic(context: context)
+        comic.title = comicTextField.text
+        comic.image = UIImagePNGRepresentation(comicImageView.image!) as NSData?
+        (UIApplication.shared.delegate as! AppDelegate).saveContext()
+        navigationController?.popViewController(animated: true)
+        
     }
 
 }
