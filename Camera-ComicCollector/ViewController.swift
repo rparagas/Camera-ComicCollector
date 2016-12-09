@@ -29,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = UITableViewCell()
         let comic = comics[indexPath.row]
         cell.textLabel?.text = comic.title
+        cell.imageView?.image = UIImage(data: comic.image as! Data)
         return cell
     }
     
